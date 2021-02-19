@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.louis296.citicup.repository.TeamMapper">
+    <resultMap id="team" type="com.louis296.citicup.model.Team">
+        <result property="name" column="name"/>
+        <result property="videoView" column="video_view"/>
+        <result property="likes" column="likes"/>
+        <result property="comments" column="comments"/>
+        <result property="forwardingNumbers" column="forwarding_numbers"/>
+        <result property="sponsorSize" column="sponsor_size"/>
+        <result property="searchIndex" column="search_index"/>
+        <result property="developmentPotentialPoints" column="development_potential_points"/>
+        <result property="comprehensiveStrengthPoints" column="comprehensive_strength_points"/>
+        <result property="clubName" column="club_name"/>
+        <result property="gameName" column="game_name"/>
+    </resultMap>
+
+    <select id="getTeamByNameClubGame" parameterType="String" resultMap="team">
+        select * from team where name=#{name} and club_name=#{club} and game_name=#{game};
+    </select>
+
+</mapper>
